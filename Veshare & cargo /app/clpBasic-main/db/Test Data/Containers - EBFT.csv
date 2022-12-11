@@ -1,0 +1,2 @@
+Unique_container_id,Operator_id,Carrier_id,Roof,Roof_material,Type_of_cargo_supported,External_length,External_width,External_height,Internal_length,Internal_width,Internal_height,Overhang_length,Overhang_width,Overhang_height,Material,Tare_weight,Tonnage,Container_description
+1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,104,96,84,NULL,NULL,NULL,NULL,NULL,857,NULL

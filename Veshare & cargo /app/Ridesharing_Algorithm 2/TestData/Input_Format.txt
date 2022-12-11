@@ -1,0 +1,49 @@
+****************
+* INPUT FORMAT *
+****************
+
+The first line contains the following data:
+
+	Tmax Tol
+
+Where
+	Tmax = Budget of driver
+	Tol = Driver waiting time tolerance value
+	
+****************
+	
+The second line contains driver details with the following data.
+	sx sy dx dy S
+
+Where
+	sx = source latitude
+	sy = source longitude
+	dx = destination latitude
+	dy = destination longitude
+	S = start time
+	
+****************
+
+The remaining lines contain passenger data. 
+For each passenger, the line contains the following data:
+
+	sx sy dx dy S O C
+
+Where
+	sx = source latitude
+	sy = source longitude
+	dx = destination latitude
+	dy = destination longitude
+	P = profit of the location
+	O = opening window for customer source
+	C = closing window for customer source
+	
+****************
+	
+* REMARKS *
+	- OSRM maps distance api is used to measure distance between two points.
+	
+****************
+
+* Remark by Rohit*
+	- AS per the program flow every driver and customer needs to have an id, so from line 2 the first string will be id, find example inputs in test1.txt

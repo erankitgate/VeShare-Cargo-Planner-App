@@ -1,0 +1,6 @@
+unique_container_id,operator_id,carrier_id,roof,roof_material,type_of_cargo_supported,external_length,external_width,external_height,internal_length,internal_width,internal_height,overhang_length,overhang_width,overhang_height,material,tare_weight,tonnage,container_description
+16,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1202,235,270,NULL,NULL,NULL,NULL,3900,28600,40ft High Cube
+17,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1202,235,270,NULL,NULL,NULL,NULL,3900,28600,40ft High Cube
+18,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1355,235,270,NULL,NULL,NULL,NULL,4800,27700,45ft High Cube
+19,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1355,235,270,NULL,NULL,NULL,NULL,4800,27700,45ft High Cube
+20,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1355,235,270,NULL,NULL,NULL,NULL,4800,27700,45ft High Cube

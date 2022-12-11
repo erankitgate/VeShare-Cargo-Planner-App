@@ -1,0 +1,6 @@
+baseurl project/day1_20_21/
+osrm_map_url /kambhoja/osrm_v5_data/newyork/new-york-latest.osrm
+driver_percentage 20
+driver_tolerance 300
+tmax_multiplier 1.5
+customer_tolerance 300

@@ -1,0 +1,19 @@
+present in project/day1_20_21/filtered_requests_folder/requests_{driverID}.txt
+
+line 1 - tmax driver_tolerance
+
+line 2 - driver_id sx sy dx dy service_start_time profit
+
+line 3 - cust_id sx sy dx dy w ot ct
+
+sx - latitude of source location
+sy - longitude of source location
+
+dx - latitude of destination location
+dy - longitude of destination location
+
+w - wait time
+
+ot - opening time
+
+ct - closing time

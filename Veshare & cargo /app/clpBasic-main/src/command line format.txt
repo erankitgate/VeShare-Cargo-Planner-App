@@ -1,0 +1,186 @@
+clpmain -mode mode
+mode:
+pack
+generateData
+---------------------------------------------------------------------------------------------------------------------------------------------
+clpmain 
+-mode 		pack 
+-container 	<int>			//containerID
+-pickup 	<YYYY-MM-DD>	//pickupDate
+-ptype 		<int>			//priorityBasedPackingType
+-outjson 	<true/false>	//generateJSONOutput
+-outpdf  	<true/false>	//generatePDFReport
+-outdir 	<string>		//outputDirectoryPath
+-outsepdir 	<true/false>	//separateJSONPDFFolders
+-savedebug 	<true/false>	//printfToLogFile
+==============================================================================================================================================
+containerID				int
+pickupDate 				YYYY-MM-DD
+
+priorityBasedPackingType:
+0	IGNORE_PRIORITY
+1	USE_PRIORITY_PACK_IN_CONTAINER_VOLUME_STEPS
+2	USE_PRIORITY_PACK_BEST_OF_EACH
+3	USE_PRIORITY_PACK_BEST_OF_EACH_WITH_STACK
+4	USE_PRIORITY_PACK_EACH_GROUP_WITH_STACK
+5	Run All Methods
+
+generateJSONOutput		boolean
+generatePDFReport		boolean
+outputDirectoryPath		string (absolute path)
+separateJSONPDFFolders	boolean
+printfToLogFile			boolean
+_____________________________________________________________________________________________________________________________________________
+Example:
+clpmain 
+-mode 		pack 
+-container 	0
+-pickup 	2021-10-11
+-ptype 		0
+-outjson 	true
+-outpdf  	true
+-outdir 	"C:\Users\Windows\Desktop\3js\\"
+-outsepdir 	true
+-savedebug 	false
+
+clpmain 
+-mode  pack 
+-container 0
+-pickup 2021-10-11
+-ptype  0
+-outjson  true
+-outpdf  true
+-outdir  "C:\Users\Windows\Desktop\3js\\"
+-outsepdir  true
+-savedebug  false
+---------------------------------------------------------------------------------------------------------------------------------------------
+clpmain
+-mode 	generateData
+-brdata <true/false>	//generateBRData
+-wtdata <true/false>	//generateDataWithWeights
+
+if generateBRData
+	-inpath	<string>		//inputBRDataDirectoryPath
+	-split	<true/false>	//singleContainerPerFile
+else
+	-outpath			<string>		//outputDirectoryPath
+	-pickup 			<YYYY-MM-DD>	//pickupDate
+	-numcontainers 		<int>			//numContainers 5
+	-sbid 				<int>			//startBoxID 11
+	-init				<int>			//currentPriorityValue
+	-incr				<int>			//incrementPriorityBy
+	-max				<int>			//maxPriorityValue
+	if wtdata
+		-gridSize 		<int>			//gridSize	5
+		-numcities 		<int>			//numCities 15
+		-numstd			<int>			//numstdBoxesPercentages
+		<list<#stdbox, percentage>>
+	end if
+end if
+
+clpmain
+-mode 	generateData
+-brdata true			//generateBRData
+-wtdata <true/false>	//generateDataWithWeights
+-inpath	<string> 		//inputBRDataDirectoryPath
+-split	<true/false>	//singleContainerPerFile
+
+
+clpmain
+-mode 				generateData
+-brdata 			false			//generateBRData
+-wtdata 			false			//generateDataWithWeights
+-outpath			<string>		//outputDirectoryPath
+-pickup 			<YYYY-MM-DD>	//pickupDate
+-numcontainers 		<int>			//numContainers 5
+-sbid 				<int>			//startBoxID 11
+-init				<int>			//currentPriorityValue
+-incr				<int>			//incrementPriorityBy
+-max				<int>			//maxPriorityValue
+
+clpmain
+-mode 				generateData
+-brdata 			false			//generateBRData
+-wtdata 			true			//generateDataWithWeights
+-outpath			<string>		//outputDirectoryPath
+-pickup 			<YYYY-MM-DD>	//pickupDate
+-numcontainers 		<int>			//numContainers 5
+-sbid 				<int>			//startBoxID 11
+-init				<int>			//currentPriorityValue
+-incr				<int>			//incrementPriorityBy
+-max				<int>			//maxPriorityValue
+-gridSize 			<int>			//gridSize	5
+-numcities 			<int>			//numCities 15
+-numstd				<int>			//numstdBoxesPercentages
+<list<#stdbox, percentage>>			//space separated 2x numstd integers
+
+Conditions:
+numcities <= gridSize * gridSize
+max <= numcities
+
+#stdbox:
+0	DHL_EXPRESS_EASY_BOX_1
+1	DHL_EXPRESS_EASY_BOX_2
+2	DHL_EXPRESS_EASY_BOX_3
+3	DHL_EXPRESS_EASY_BOX_4
+4	DHL_EXPRESS_EASY_BOX_5
+5	DHL_EXPRESS_EASY_BOX_6
+6	DHL_EXPRESS_EASY_BOX_7
+7	DHL_EXPRESS_EASY_BOX_8
+8	DHL_SMALL_BOX
+9	DHL_BRIEFCASE_BOX
+10	DHL_BIG_BOX
+11	DHL_SNAP_BOX
+12	DHL_SNAP_BOX_LARGE
+13	ROYAL_SMALL
+14	ROYAL_MEDIUM
+15	ROYAL_BIG
+16	DART_BLUE_SMART_1
+17	DART_BLUE_SMART_2
+==============================================================================================================================================
+Examples:
+clpmain
+-mode 	generateData
+-brdata true
+-wtdata false
+-inpath	"C:\Users\Windows\Documents\eclipse-workspace\clpBasic_v5\db\Data Generation Test\brsimple\\"
+-split	false
+
+clpmain
+-mode 	generateData
+-brdata true
+-wtdata true
+-inpath	"C:\Users\Windows\Documents\eclipse-workspace\clpBasic_v5\db\Data Generation Test\brwt\\"
+-split	false
+
+clpmain
+-mode 		generateData
+-brdata 	false
+-wtdata 	false
+-outpath	"C:\Users\Windows\Documents\eclipse-workspace\clpBasic_v5\db\Data Generation Test\rnsimple\\"
+-pickup 			2021-10-11
+-numcontainers 		5
+-sbid 				11
+-init				1
+-incr				2
+-max				9
+
+clpmain
+-mode 		generateData
+-brdata 	false
+-wtdata 	true
+-outpath	"C:\Users\Windows\Documents\eclipse-workspace\clpBasic_v5\db\Data Generation Test\rnwt\\"
+-pickup 			2021-10-11
+-numcontainers 		5
+-sbid 				11
+-init				2
+-incr				2
+-max				10
+-gridSize 			5
+-numcities 			15
+-numstd				4
+0 5
+2 30
+4 40
+6 25
+---------------------------------------------------------------------------------------------------------------------------------------------
